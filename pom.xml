@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -9,12 +8,20 @@
 	<packaging>jar</packaging>
 
 	<name>maven-stanalone-application</name>
+	<url>https://nareshit.in/</url>
 
-
+	<organization>
+		<name>Naresh Technologies</name>
+		<url>https://nareshit.in/</url>
+	</organization>
+	
 	<description>Maven Standalone Application</description>
+
 	<properties>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
+		<sonar.host.url>http://35.154.242.68:9000/</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>admin</sonar.password>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -28,23 +35,40 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<!-- Build an executable JAR -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.mt.sample.HelloWorld</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<!-- Committing and updating changes through Maven, by using below mvn command. 
+		For Commiting mvn -Dmessage="Updated using maven" scm:checkin For updating 
+		mvn scm:update -->
+	<scm>
+		<connection>scm:git:https://github.com/vkdevopstraining/maven-standalone-application</connection>
+		<developerConnection>scm:git:https://github.com/vkdevopstraining/maven-standalone-application</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/vkdevopstraining/maven-standalone-application</url>
+	</scm>
 
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/vkdevopstraining/maven-standalone-application/issues</url>
+	</issueManagement>
+
+	
+	<build>
+	  <plugins>
+	    <plugin>
+	      <!-- Build an executable JAR -->
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-jar-plugin</artifactId>
+	      <version>3.1.0</version>
+	      <configuration>
+	        <archive>
+	          <manifest>
+	            <addClasspath>true</addClasspath>
+	            <classpathPrefix>lib/</classpathPrefix>
+	            <mainClass>com.mt.sample.HelloWorld</mainClass>
+	          </manifest>
+	        </archive>
+	      </configuration>
+	    </plugin>
+	  </plugins>
+	</build>
+	
 </project>
